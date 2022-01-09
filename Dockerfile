@@ -8,14 +8,14 @@ RUN apk --no-cache add curl=7.77.0-r1 vlc=3.0.14-r0 ffmpeg=4.4-r1 tzdata=2021a-r
 RUN rm -rf /var/cache/apk/*
 
 # Add xteve binary
-ADD https://github.com/xteve-project/xTeVe-Downloads/raw/master/xteve_linux_amd64.zip /tmp/xteve_linux_amd64.zip
+ADD https://github.com/xteve-project/xTeVe-Downloads/raw/master/xteve_linux_arm64.zip /tmp/xteve_linux_arm64.zip
 
 # Unzip the Binary
 RUN mkdir -p /xteve
-RUN unzip -o /tmp/xteve_linux_amd64.zip -d /xteve
+RUN unzip -o /tmp/xteve_linux_arm64.zip -d /xteve
 
 # Clean up the .zip
-RUN rm /tmp/xteve_linux_amd64.zip
+RUN rm /tmp/xteve_linux_arm64.zip
 
 # Add user for VLC and ffmpeg
 RUN addgroup --gid 65000 -S xteve && adduser --uid 65000 -S xteve -G xteve
